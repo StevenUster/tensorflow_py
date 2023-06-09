@@ -18,6 +18,6 @@ def generate_images(model, num_images):
         plt.clf()
 
 
-generator = tf.keras.models.load_model('models/generator_model_1.h5')
+generator = tf.keras.models.load_model('models/generator_model_2.h5')
 
 generate_images(generator, args.num_images)
