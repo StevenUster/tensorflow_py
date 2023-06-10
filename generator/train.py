@@ -141,6 +141,9 @@ checkpoint = tf.train.Checkpoint(epoch_number=tf.Variable(0),
 
 
 def train(dataset, epochs):
+    generate_and_save_images(generator,
+                            1,
+                            seed)
     for epoch in range(checkpoint.epoch_number.numpy(), epochs):
         start = time.time()
 
