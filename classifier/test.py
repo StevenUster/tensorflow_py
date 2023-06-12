@@ -2,7 +2,7 @@ from tensorflow import keras
 import pickle
 
 try:
-    model = keras.models.load_model('models/images')
+    model = keras.models.load_model('classifier_model.h5')
 except:
     print("Model not found. Please run train.py first.")
     exit()
