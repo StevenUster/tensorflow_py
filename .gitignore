@@ -3,3 +3,4 @@ myenv
 training_checkpoints
 models
 generator2/training_checkpoints/checkpoint
+*.pickle
