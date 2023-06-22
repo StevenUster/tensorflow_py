@@ -1,4 +1,5 @@
 from tensorflow import keras
+import numpy as np
 import pickle
 
 try:
@@ -8,9 +9,12 @@ except:
     exit()
 
 features = pickle.load(open("testing_data/features.pickle", "rb"))
-labels = pickle.load(open("testing_data/labels.pickle", "rb")) #outputs
+labels = pickle.load(open("testing_data/labels.pickle", "rb"))
 
-print("Labels: ")
-print(labels)
-print("Predicted value: ")
-print(model.predict(features))
+predictions = model.predict(features)
+
+predicted_labels = (predictions > 0.5).astype(int).flatten()
+
+print("\nLabels vs Predicted values:")
+for i in range(len(labels)):
+    print(f'Actual: {labels[i]}, Predicted: {predicted_labels[i]}, Raw: {predictions[i][0]:.4f}')

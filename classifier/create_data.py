@@ -20,7 +20,8 @@ def create_training_data(folder):
                     path, img), cv2.IMREAD_GRAYSCALE)
                 new_array = cv2.resize(img_array, (IMG_SIZE, IMG_SIZE))
                 training_data.append([new_array, class_num])
-            except:
+            except Exception as e:
+                print("Error:", e)
                 pass
     return training_data
 
@@ -38,6 +39,9 @@ for folder in DATA:
 
     features = np.array(features).reshape(-1, IMG_SIZE, IMG_SIZE, 1)
     labels = np.array(labels)
+
+    # Normalize features
+    features = features / 255.0
 
     pickle_out = open(folder + "/features.pickle", "wb")
     pickle.dump(features, pickle_out)

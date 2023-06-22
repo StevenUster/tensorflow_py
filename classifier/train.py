@@ -18,5 +18,5 @@ model.compile(optimizer='adam',
               loss='binary_crossentropy',
               metrics=['accuracy'])
 
-model.fit(features, labels, epochs=200)
+model.fit(features, labels, epochs=1000)
 model.save('classifier_model.h5')
