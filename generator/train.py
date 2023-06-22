@@ -93,7 +93,7 @@ checkpoint = tf.train.Checkpoint(generator_optimizer=generator_optimizer,
                                  discriminator=discriminator)
     
 
-EPOCHS = 5000
+EPOCHS = 10000
 noise_dim = 100
 num_examples_to_generate = 16
 
@@ -130,7 +130,6 @@ def generate_and_save_images(model, epoch, test_input):
         plt.axis('off')
 
     plt.savefig('training_images/image_at_epoch_{:04d}.png'.format(epoch))
-    plt.show()
 
 
 checkpoint = tf.train.Checkpoint(epoch_number=tf.Variable(0),
@@ -141,10 +140,10 @@ checkpoint = tf.train.Checkpoint(epoch_number=tf.Variable(0),
 
 
 def train(dataset, epochs):
-    generate_and_save_images(generator,
-                            1,
-                            seed)
     for epoch in range(checkpoint.epoch_number.numpy(), epochs):
+        if (epoch + 1 == 1):
+            generate_and_save_images(generator,1,seed)
+
         start = time.time()
 
         for image_batch in dataset:

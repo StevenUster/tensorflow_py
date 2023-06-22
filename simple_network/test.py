@@ -1,7 +1,7 @@
 from tensorflow import keras
 
 try:
-    model = keras.models.load_model('models/simple_numbers')
+    model = keras.models.load_model('simple_nn.h5')
 except:
     print("Model not found. Please run train.py first.")
     exit()

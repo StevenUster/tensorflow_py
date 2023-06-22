@@ -12,4 +12,4 @@ model = tf.keras.Sequential([
 model.compile(optimizer='sgd', loss='mean_squared_error')
 
 model.fit(features, labels, epochs=1000)
-model.save('models/simple_numbers')
+model.save('simple_nn.h5')
