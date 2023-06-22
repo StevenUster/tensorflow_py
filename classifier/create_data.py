@@ -40,7 +40,6 @@ for folder in DATA:
     features = np.array(features).reshape(-1, IMG_SIZE, IMG_SIZE, 1)
     labels = np.array(labels)
 
-    # Normalize features
     features = features / 255.0
 
     pickle_out = open(folder + "/features.pickle", "wb")
